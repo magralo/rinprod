@@ -15,9 +15,8 @@ RUN groupadd -r plumber && useradd --no-log-init -r -g plumber plumber
 
 ADD plumber.R /home/plumber/plumber.R
 ADD entrypoint.R /home/plumber/entrypoint.R
-
-EXPOSE 8000
-
 WORKDIR /home/plumber
 USER plumber
-CMD Rscript entrypoint.R
+#CMD Rscript 
+
+CMD ["Rscript","entrypoint.R"]
