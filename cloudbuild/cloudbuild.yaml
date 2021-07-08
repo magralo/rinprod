@@ -1,0 +1,11 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['builds', 'submit','-t', 'gcr.io/directed-asset-312701/minrexample', '.']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'algor', '--image', 'gcr.io/directed-asset-312701/minrexample', '--region', 'us-central1', '--platform', 'managed','--allow-unauthenticated' ]
+
+# cloudbuild SA with cloud run admin + Usuario cuentas de servicio
+
+## https://algor-czhaz5mivq-uc.a.run.app/parity?int=10
